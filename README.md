@@ -1,62 +1,55 @@
-# Weather Dashboard ☀️🌧️
+🌦️ Weather Dashboard
+A simple weather dashboard that allows users to search for cities and view the current weather 🌤️ as well as a 5-day forecast 🌈.
 
-A simple weather dashboard that allows users to search for a city and view the current weather and 5-day forecast.
+✨ Features
+🔍 Search for any city to get the current weather and a 5-day forecast.
+📜 View search history of cities you've checked before.
+🗑️ Delete cities from search history.
+🌍 Live Sites
+Frontend (Live): https://weather-dashboard-3-0mc4.onrender.com 🌐
+Backend (API): https://weather-dashboard-2-8b3p.onrender.com 🛠️
+🧑‍💻 Tech Stack
+Frontend: TypeScript, Vite ⚙️
+Backend: Node.js, Express.js, CORS middleware 🌱
+API: OpenWeather API 🌦️
+🛠️ Setup Instructions (Locally)
+Clone the repository:
 
-## Features
-
-- Search for any city
-- View current weather (temp, wind, humidity)
-- View 5-day forecast
-- Search history saved and displayed
-- Mobile-friendly layout
-
-## Technologies Used
-
-- TypeScript
-- Node.js + Express
-- OpenWeather API
-- Vite
-- HTML + CSS
-
-## Demo
-
-🚀 Live site: _coming soon..._  
-🔗 Backend API: _coming soon..._
-
-## Installation
-
-1. Clone the repo:
+bash
+Copy
 git clone https://github.com/HamzahAlsalmi/weather-dashboard.git
+Navigate into the project folder:
 
-markdown
+bash
 Copy
-Edit
+cd weather-dashboard
+Install dependencies for both frontend and backend:
 
-2. Install backend dependencies:
-cd server npm install
+For backend:
 
-markdown
+bash
 Copy
-Edit
+cd server
+npm install
+For frontend:
 
-3. Install frontend dependencies:
-cd ../client npm install
-
-markdown
+bash
 Copy
-Edit
+cd client
+npm install
+Run the backend and frontend locally:
 
-4. Add a `.env` file in `/server`:
-OPENWEATHER_API_KEY=your_api_key_here API_BASE_URL=https://api.openweathermap.org
+For backend:
 
-markdown
+bash
 Copy
-Edit
+cd server
+npm run dev
+For frontend:
 
-5. Run the project locally:
-- In `/server`: `npm run start`
-- In `/client`: `npm run dev`
-
-## License
-
-MIT
+bash
+Copy
+cd client
+npm run dev
+📜 License
+This project is licensed under the MIT License.
