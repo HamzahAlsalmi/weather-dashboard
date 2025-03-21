@@ -1,0 +1,22 @@
+[
+  {
+    "id": "2db5518c-80af-47a5-8730-6fa847acaa02",
+    "city": "Denver",
+    "date": "3/20/2025",
+    "icon": "04n",
+    "iconDescription": "broken clouds",
+    "tempF": 8.93,
+    "windSpeed": 2.24,
+    "humidity": 19
+  },
+  {
+    "id": "931cc3c9-cb0a-4e71-81b2-d0d9005e890a",
+    "city": "San diego",
+    "date": "3/20/2025",
+    "icon": "03n",
+    "iconDescription": "scattered clouds",
+    "tempF": 14.21,
+    "windSpeed": 3.6,
+    "humidity": 75
+  }
+]

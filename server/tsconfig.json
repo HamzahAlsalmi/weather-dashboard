@@ -1,12 +1,25 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    /* Modules */
-    "rootDir": "src" /* Specify the root folder within your source files. */,
+    /* ✅ Modules */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
 
-    /* Emit */
-    "outDir": "dist" /* Specify an output folder for all emitted files. */
-    // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
+    /* ✅ Target & Emit */
+    "target": "ESNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+
+    /* ✅ Type Definitions */
+    "types": ["node", "express", "dotenv"],
+
+    /* ✅ Additional Options */
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

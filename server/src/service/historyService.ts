@@ -1,17 +1,39 @@
-// TODO: Define a City class with name and id properties
+import fs from "fs";
+import path from "path";
+import { v4 as uuidv4 } from "uuid";
+import City from "./City.js"; // Add the .js extension for ES module imports
 
-// TODO: Complete the HistoryService class
+const historyFilePath = path.join(__dirname, "../../data/searchHistory.json");
+
 class HistoryService {
-  // TODO: Define a read method that reads from the searchHistory.json file
-  // private async read() {}
-  // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
-  // private async write(cities: City[]) {}
-  // TODO: Define a getCities method that reads the cities from the searchHistory.json file and returns them as an array of City objects
-  // async getCities() {}
-  // TODO Define an addCity method that adds a city to the searchHistory.json file
-  // async addCity(city: string) {}
-  // * BONUS TODO: Define a removeCity method that removes a city from the searchHistory.json file
-  // async removeCity(id: string) {}
+  private async read(): Promise<City[]> {
+    if (fs.existsSync(historyFilePath)) {
+      const data = fs.readFileSync(historyFilePath, "utf-8");
+      return JSON.parse(data);
+    }
+    return [];
+  }
+
+  private async write(cities: City[]): Promise<void> {
+    fs.writeFileSync(historyFilePath, JSON.stringify(cities, null, 2));
+  }
+
+  async getCities(): Promise<City[]> {
+    return await this.read();
+  }
+
+  async addCity(cityName: string): Promise<void> {
+    const cities = await this.getCities();
+    const newCity = new City(cityName); // Create a new City object
+    cities.push(newCity); // Add it to the array
+    await this.write(cities); // Save the updated list
+  }
+
+  async removeCity(id: string): Promise<void> {
+    const cities = await this.getCities();
+    const updatedCities = cities.filter((city: any) => city.id !== id);
+    await this.write(updatedCities); // Save the updated list
+  }
 }
 
 export default new HistoryService();

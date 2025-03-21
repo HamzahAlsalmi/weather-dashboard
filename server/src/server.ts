@@ -1,20 +1,32 @@
-import dotenv from 'dotenv';
-import express from 'express';
-dotenv.config();
+import dotenv from "dotenv";
+import express from "express";
+import path from "path";
+import weatherRoutes from "./routes/api/weatherRoutes.js"; // Use `.js` for ESModules
 
-// Import the routes
-import routes from './routes/index.js';
+dotenv.config();
 
 const app = express();
 
+// ✅ Use a different port than Vite
 const PORT = process.env.PORT || 3001;
 
-// TODO: Serve static files of entire client dist folder
+// ✅ Middleware to parse JSON and form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// TODO: Implement middleware for parsing JSON and urlencoded form data
+// ✅ Serve static frontend (adjust path as needed)
+const clientDistPath = path.resolve("../client/dist");
+app.use(express.static(clientDistPath));
 
-// TODO: Implement middleware to connect the routes
-app.use(routes);
+// ✅ API routes
+app.use("/api/weather", weatherRoutes);
 
-// Start the server on the port
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+// ✅ Optional health check route
+app.get("/", (_req, res) => {
+  res.send("🌦️ Weather API is live!");
+});
+
+// ✅ Start server
+app.listen(PORT, () => {
+  console.log(`🌦️  Listening on http://localhost:${PORT}`);
+});
