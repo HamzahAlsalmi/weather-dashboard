@@ -1,5 +1,7 @@
 import "./styles/jass.css";
 
+const API_BASE = "https://weather-dashboard-2-8b3p.onrender.com";
+
 // * DOM Elements
 const searchForm = document.getElementById("search-form") as HTMLFormElement;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
@@ -21,7 +23,7 @@ API Calls
 */
 
 const fetchWeather = async (cityName: string) => {
-  const response = await fetch("/api/weather/", {
+  const response = await fetch(`${API_BASE}/api/weather`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ cityName }),
@@ -33,14 +35,14 @@ const fetchWeather = async (cityName: string) => {
 };
 
 const fetchSearchHistory = async () => {
-  return await fetch("/api/weather/history", {
+  return await fetch(`${API_BASE}/api/weather/history`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
 };
 
 const deleteCityFromHistory = async (id: string) => {
-  await fetch(`/api/weather/history/${id}`, {
+  await fetch(`${API_BASE}/api/weather/history/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
